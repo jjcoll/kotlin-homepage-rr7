@@ -1,0 +1,120 @@
+/* KTO Grid System — 12 columns, desktop first */
+
+.kto-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.kto-grid-gap-4  { gap: 4px; }
+.kto-grid-gap-8  { gap: 8px; }
+.kto-grid-gap-16 { gap: 16px; }
+.kto-grid-gap-32 { gap: 32px; }
+.kto-grid-gap-48 { gap: 48px; }
+
+/* Default (desktop) column classes */
+.kto-col-1  { grid-column: span 1; }
+.kto-col-2  { grid-column: span 2; }
+.kto-col-3  { grid-column: span 3; }
+.kto-col-4  { grid-column: span 4; }
+.kto-col-5  { grid-column: span 5; }
+.kto-col-6  { grid-column: span 6; }
+.kto-col-7  { grid-column: span 7; }
+.kto-col-8  { grid-column: span 8; }
+.kto-col-9  { grid-column: span 9; }
+.kto-col-10 { grid-column: span 10; }
+.kto-col-11 { grid-column: span 11; }
+.kto-col-12 { grid-column: span 12; }
+
+/* lg — ≤1276px */
+@media (max-width: 1276px) {
+    .kto-col-lg-1  { grid-column: span 1; }
+    .kto-col-lg-2  { grid-column: span 2; }
+    .kto-col-lg-3  { grid-column: span 3; }
+    .kto-col-lg-4  { grid-column: span 4; }
+    .kto-col-lg-5  { grid-column: span 5; }
+    .kto-col-lg-6  { grid-column: span 6; }
+    .kto-col-lg-7  { grid-column: span 7; }
+    .kto-col-lg-8  { grid-column: span 8; }
+    .kto-col-lg-9  { grid-column: span 9; }
+    .kto-col-lg-10 { grid-column: span 10; }
+    .kto-col-lg-11 { grid-column: span 11; }
+    .kto-col-lg-12 { grid-column: span 12; }
+}
+
+/* md — ≤1000px */
+@media (max-width: 1000px) {
+    .kto-col-md-1  { grid-column: span 1; }
+    .kto-col-md-2  { grid-column: span 2; }
+    .kto-col-md-3  { grid-column: span 3; }
+    .kto-col-md-4  { grid-column: span 4; }
+    .kto-col-md-5  { grid-column: span 5; }
+    .kto-col-md-6  { grid-column: span 6; }
+    .kto-col-md-7  { grid-column: span 7; }
+    .kto-col-md-8  { grid-column: span 8; }
+    .kto-col-md-9  { grid-column: span 9; }
+    .kto-col-md-10 { grid-column: span 10; }
+    .kto-col-md-11 { grid-column: span 11; }
+    .kto-col-md-12 { grid-column: span 12; }
+}
+
+/* sm — ≤640px */
+@media (max-width: 640px) {
+    .kto-col-sm-1  { grid-column: span 1; }
+    .kto-col-sm-2  { grid-column: span 2; }
+    .kto-col-sm-3  { grid-column: span 3; }
+    .kto-col-sm-4  { grid-column: span 4; }
+    .kto-col-sm-5  { grid-column: span 5; }
+    .kto-col-sm-6  { grid-column: span 6; }
+    .kto-col-sm-7  { grid-column: span 7; }
+    .kto-col-sm-8  { grid-column: span 8; }
+    .kto-col-sm-9  { grid-column: span 9; }
+    .kto-col-sm-10 { grid-column: span 10; }
+    .kto-col-sm-11 { grid-column: span 11; }
+    .kto-col-sm-12 { grid-column: span 12; }
+}
+
+/* =============================================
+   Offset Top — margin-top utilities
+   ============================================= */
+
+/* Default (desktop) */
+.kto-offset-top-4  { margin-top: 4px; }
+.kto-offset-top-8  { margin-top: 8px; }
+.kto-offset-top-16 { margin-top: 16px; }
+.kto-offset-top-32 { margin-top: 32px; }
+.kto-offset-top-48 { margin-top: 48px; }
+.kto-offset-top-64 { margin-top: 64px; }
+.kto-offset-top-96 { margin-top: 96px; }
+
+/* lg — ≤1276px */
+@media (max-width: 1276px) {
+    .kto-offset-top-lg-4  { margin-top: 4px; }
+    .kto-offset-top-lg-8  { margin-top: 8px; }
+    .kto-offset-top-lg-16 { margin-top: 16px; }
+    .kto-offset-top-lg-32 { margin-top: 32px; }
+    .kto-offset-top-lg-48 { margin-top: 48px; }
+    .kto-offset-top-lg-64 { margin-top: 64px; }
+    .kto-offset-top-lg-96 { margin-top: 96px; }
+}
+
+/* md — ≤1000px */
+@media (max-width: 1000px) {
+    .kto-offset-top-md-4  { margin-top: 4px; }
+    .kto-offset-top-md-8  { margin-top: 8px; }
+    .kto-offset-top-md-16 { margin-top: 16px; }
+    .kto-offset-top-md-32 { margin-top: 32px; }
+    .kto-offset-top-md-48 { margin-top: 48px; }
+    .kto-offset-top-md-64 { margin-top: 64px; }
+    .kto-offset-top-md-96 { margin-top: 96px; }
+}
+
+/* sm — ≤640px */
+@media (max-width: 640px) {
+    .kto-offset-top-sm-4  { margin-top: 4px; }
+    .kto-offset-top-sm-8  { margin-top: 8px; }
+    .kto-offset-top-sm-16 { margin-top: 16px; }
+    .kto-offset-top-sm-32 { margin-top: 32px; }
+    .kto-offset-top-sm-48 { margin-top: 48px; }
+    .kto-offset-top-sm-64 { margin-top: 64px; }
+    .kto-offset-top-sm-96 { margin-top: 96px; }
+}

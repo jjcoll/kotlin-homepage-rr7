@@ -1,0 +1,40 @@
+.kto-layout-section {
+  background-color: #fff;
+  box-sizing: border-box;
+  padding-bottom: 96px;
+  padding-top: 1px
+}
+
+.kto-layout-container {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1276px;
+  padding-left: 22px;
+  padding-right: 22px;
+  width: 100%
+}
+
+@media screen and (max-width: 1276px) {
+  .kto-layout-container {
+    max-width: 996px;
+    padding-left: 22px;
+    padding-right: 22px
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .kto-layout-container {
+    max-width: 100%;
+    padding-left: 22px;
+    padding-right: 22px
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .kto-layout-container {
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px
+  }
+}

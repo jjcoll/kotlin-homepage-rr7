@@ -1,0 +1,16 @@
+
+.latest-from-kotlin-section {
+  background-color: transparent;
+  padding-top: 96px;
+
+  &__banner-link {
+    display: block;
+    font-size: 0;
+    line-height: 0;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+  }
+}
