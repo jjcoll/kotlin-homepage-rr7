@@ -1,5 +1,4 @@
-
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import Button from '@rescui/button';
 import { useTextStyles } from '@rescui/typography';
 import { TabList, Tab, TabSeparator } from '@rescui/tab-list';
@@ -14,19 +13,13 @@ import './index.scss';
 
 hljs.registerLanguage('kotlin', kotlin);
 
-const initialIndex = Math.floor(Math.random() * tabs.length);
-
 export function ProgrammingLanguage() {
   const textCn = useTextStyles();
-  const [activeIndex, setActiveIndex] = useState(initialIndex);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const highlighted = (() => {
-    const el = document.createElement('code');
-    el.className = 'language-kotlin';
-    el.textContent = tabs[activeIndex].code;
-    hljs.highlightBlock(el);
-    return el.innerHTML;
-  })();
+  const highlighted = useMemo(() => {
+    return hljs.highlight(tabs[activeIndex].code, { language: 'kotlin' }).value;
+  }, [activeIndex]);
 
   return (
     <div className="kto-grid kto-grid-gap-32 kto-offset-top-96 kto-offset-top-md-48">

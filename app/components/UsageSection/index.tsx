@@ -14,8 +14,10 @@ import { Container, Section } from '../Layout';
 function UsageSectionContent() {
   const textCn = useTextStyles();
 
-  const savedOrder = localStorage.getItem('kotlin-testimonials-order');
-  const [sortByName, setSortByName] = useState(savedOrder === 'name');
+  const [sortByName, setSortByName] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return localStorage.getItem('kotlin-testimonials-order') === 'name'
+  });
   const sortedTestimonials = sortByName
     ? [...testimonials].sort((a, b) => a.company.localeCompare(b.company))
     : testimonials;

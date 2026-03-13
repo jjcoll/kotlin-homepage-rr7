@@ -10,13 +10,13 @@ import { ThemeProvider } from '@rescui/ui-contexts';
 
 import './index.scss';
 import '../../styles/grid.scss'
+import { Header } from '~/components/Header';
 import { HeaderSection } from '~/components/HeaderSection';
 import { LatestFromKotlinSection } from '~/components/LatestFromKotlinSection';
 import { WhyKotlinSection } from '~/components/WhyKotlinSection';
 import { UsageSection } from '~/components/UsageSection';
 import { StartSection } from '~/components/StartSection';
-import Header from '~/components/Header';
-import Footer from '~/components/Footer';
+import { Footer } from '~/components/Footer';
 
 function OverviewPageContent() {
   return <div className="overview-page">

@@ -5,12 +5,9 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
-  resolve: {
-    alias: {
-      "@rescui/card": "@rescui/card/lib/index.js",
-    },
-  },
   ssr: {
-    noExternal: [/^@rescui\//],
+    noExternal: [/^@rescui\//, /^@jetbrains\//],
+    // explicitly keep react external so it doesn't get double-bundled
+    external: ['react', 'react-dom', 'react/jsx-runtime', 'react/jsx-dev-runtime'],
   },
 });

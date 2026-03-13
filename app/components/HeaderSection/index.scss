@@ -1,6 +1,10 @@
-.header-section {
+// increase specificity for overrides
+.kto-layout-section.header-section {
   background-color: transparent;
   padding-top: 96px;
+}
+
+.header-section {
 
   &__actions {
     margin-top: 32px;
@@ -22,3 +26,4 @@
     gap: 8px;
   }
 }
+
