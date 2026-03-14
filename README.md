@@ -2,7 +2,9 @@
 
 > **Task #2**: Migration to React Router 7 Framework Mode with SSR
 
-This project migrates a legacy React SPA (originally built with Flask + Webpack) to **React Router 7 in Framework Mode** with full Server-Side Rendering, while preserving the original visual appearance and interactive functionality.
+This project migrates a legacy server-rendered Flask application with embedded React components to **React Router 7 in Framework Mode** with full Server-Side Rendering, while preserving the original visual appearance and interactive functionality.
+
+The original architecture used Flask/Jinja2 for routing and page structure, with React mounted only for interactive sections. This migration moves to a unified React Router SSR architecture where React handles both the page structure and interactivity.
 
 ---
 
@@ -18,8 +20,10 @@ This project migrates a legacy React SPA (originally built with Flask + Webpack)
 ```bash
 git clone https://github.com/jjcoll/kotlin-homepage-rr7
 cd kotlin-homepage-rr7
-npm install
+npm install --legacy-peer-deps
 ```
+
+> **Note**: `--legacy-peer-deps` is required due to peer dependency conflicts in the legacy `@rescui` packages.
 
 ### Development
 
@@ -147,7 +151,15 @@ ssr: {
 
 **Problem**: The package's `package.json` has a typo — the `module` field points to `index.ts` instead of `index.js`.
 
-**Solution**: The `noExternal` pattern resolves this. Vite bundles the package and handles module resolution internally.
+**Solution**: Added an explicit alias in `vite.config.ts` to point to the correct file:
+
+```ts
+resolve: {
+  alias: {
+    "@rescui/card": "@rescui/card/lib/index.js",
+  },
+},
+```
 
 ### @jetbrains/kotlin-web-site-ui — CommonJS + require()
 
