@@ -229,6 +229,16 @@ The migrated page matches the original design:
 
 ---
 
+## Future Considerations
+
+To further align the project with modern SSR standards, the following improvements could be explored:
+
+- **Package Modernization**: Updating the `@rescui` and `@jetbrains` internal libraries to be ESM-native would eliminate the need for the current Vite SSR workarounds and aliases.
+
+- **URL-driven State**: Transitioning UI preferences (like sorting or tab selection) from cookies/state to URL search parameters would make the page state fully shareable and better leverage React Router's data-loading patterns.
+
+---
+
 ## Tech Stack
 
 | Layer     | Choice                             |
