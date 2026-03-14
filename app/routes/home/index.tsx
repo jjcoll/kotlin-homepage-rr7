@@ -1,10 +1,5 @@
 import '@rescui/typography/lib/font-jb-sans-auto.css';
 
-import hljs from 'highlight.js/lib/core';
-import kotlin from 'highlight.js/lib/languages/kotlin';
-import 'highlight.js/styles/github.css';
-hljs.registerLanguage('kotlin', kotlin);
-
 import { ThemeProvider } from '@rescui/ui-contexts';
 import { useLoaderData } from 'react-router';
 
@@ -16,11 +11,15 @@ import twitterImage from "~/assets/images/twitter/general.png";
 
 import './index.scss';
 
-// Loader runs on server - can read cookies
+// Loader runs on server - can read cookies and generate random values
 export function loader({ request }: Route.LoaderArgs) {
   const cookieHeader = request.headers.get("Cookie") || "";
   const sortByName = cookieHeader.includes("kotlin-testimonials-order=name");
-  return { sortByName };
+
+  // Generate random tab index on server so client hydrates with same value
+  const initialCodeTabIndex = Math.floor(Math.random() * 5); // 5 tabs in ProgrammingLanguage
+
+  return { sortByName, initialCodeTabIndex };
 }
 
 export const meta: Route.MetaFunction = () => {
@@ -57,12 +56,17 @@ import { UsageSection, type UsageSectionProps } from '~/components/UsageSection'
 import { StartSection } from '~/components/StartSection';
 import { Footer } from '~/components/Footer';
 
-function OverviewPageContent({ initialSortByName }: { initialSortByName: boolean }) {
+interface OverviewPageContentProps {
+  initialSortByName: boolean;
+  initialCodeTabIndex: number;
+}
+
+function OverviewPageContent({ initialSortByName, initialCodeTabIndex }: OverviewPageContentProps) {
   return <div className="overview-page">
     <Header />
     <HeaderSection />
     <LatestFromKotlinSection />
-    <WhyKotlinSection />
+    <WhyKotlinSection initialCodeTabIndex={initialCodeTabIndex} />
     <UsageSection initialSortByName={initialSortByName} />
     <StartSection />
     <Footer />
@@ -70,11 +74,11 @@ function OverviewPageContent({ initialSortByName }: { initialSortByName: boolean
 }
 
 export default function HomePage() {
-  const { sortByName } = useLoaderData<typeof loader>();
+  const { sortByName, initialCodeTabIndex } = useLoaderData<typeof loader>();
 
   return (
     <ThemeProvider theme="dark">
-      <OverviewPageContent initialSortByName={sortByName} />
+      <OverviewPageContent initialSortByName={sortByName} initialCodeTabIndex={initialCodeTabIndex} />
     </ThemeProvider>
   );
 }

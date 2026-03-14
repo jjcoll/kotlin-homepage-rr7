@@ -68,14 +68,18 @@ function YouTubeEmbed({ id }: { id: string }) {
   );
 }
 
-function WhyKotlinContent() {
+interface WhyKotlinContentProps {
+  initialCodeTabIndex: number;
+}
+
+function WhyKotlinContent({ initialCodeTabIndex }: WhyKotlinContentProps) {
   const textCn = useTextStyles();
   return (
     <Section className="why-kotlin-section">
       <Container>
         <h2 className={textCn('rs-hero')}>Why Kotlin</h2>
 
-        <ProgrammingLanguage />
+        <ProgrammingLanguage initialTabIndex={initialCodeTabIndex} />
 
         {sections.map((section, index) => (
           <div key={index} className="kto-grid kto-grid-gap-32 kto-offset-top-96 kto-offset-top-md-48">
@@ -114,10 +118,14 @@ function WhyKotlinContent() {
   );
 }
 
-export function WhyKotlinSection() {
+interface WhyKotlinSectionProps {
+  initialCodeTabIndex: number;
+}
+
+export function WhyKotlinSection({ initialCodeTabIndex }: WhyKotlinSectionProps) {
   return (
     <ThemeProvider theme="light">
-      <WhyKotlinContent />
+      <WhyKotlinContent initialCodeTabIndex={initialCodeTabIndex} />
     </ThemeProvider>
   );
 }

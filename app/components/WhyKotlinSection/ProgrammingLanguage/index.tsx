@@ -13,9 +13,13 @@ import './index.scss';
 
 hljs.registerLanguage('kotlin', kotlin);
 
-export function ProgrammingLanguage() {
+interface ProgrammingLanguageProps {
+  initialTabIndex?: number;
+}
+
+export function ProgrammingLanguage({ initialTabIndex = 0 }: ProgrammingLanguageProps) {
   const textCn = useTextStyles();
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(initialTabIndex);
 
   const highlighted = useMemo(() => {
     return hljs.highlight(tabs[activeIndex].code, { language: 'kotlin' }).value;
