@@ -25,5 +25,12 @@
     align-items: center;
     gap: 8px;
   }
+
+  // Hide 3rd and 4th cards on mobile (SSR-safe: CSS handles visibility)
+  .kto-grid > a:nth-child(n+3) {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
 }
 

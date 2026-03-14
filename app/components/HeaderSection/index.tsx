@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import Button from '@rescui/button';
 import { useTextStyles } from '@rescui/typography';
 import { cardCn } from '@rescui/card';
@@ -12,14 +11,6 @@ import { Container, Section } from '../Layout';
 
 export function HeaderSection() {
   const textCn = useTextStyles();
-
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
-  }, []);
-
-  const visibleCards = isMobile ? cardsData.slice(0, 2) : cardsData;
 
   return <div>
     <Section className="header-section">
@@ -47,7 +38,7 @@ export function HeaderSection() {
         </div>
 
         <div className="kto-grid kto-grid-gap-16 kto-offset-top-48">
-          {visibleCards.map(card => (
+          {cardsData.map(card => (
             <a key={card.id} href={card.link} className={cn(cardCn({
               theme: 'dark',
               mode: 'classic',
