@@ -10,13 +10,39 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 
+// Favicon imports
+import faviconSvg from "~/assets/images/favicon.svg";
+import faviconIco from "~/assets/images/favicon.ico";
+import appleTouchIcon from "~/assets/images/apple-touch-icon.png";
+import appleTouchIcon72 from "~/assets/images/apple-touch-icon-72x72.png";
+import appleTouchIcon114 from "~/assets/images/apple-touch-icon-114x114.png";
+import appleTouchIcon144 from "~/assets/images/apple-touch-icon-144x144.png";
+
 export const links: Route.LinksFunction = () => [
+  // DNS Prefetch
+  { rel: "dns-prefetch", href: "//fonts.googleapis.com" },
+  { rel: "dns-prefetch", href: "//fonts.gstatic.com" },
+  { rel: "dns-prefetch", href: "//resources.jetbrains.com" },
+
+  // Preconnect for fonts
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",
     href: "https://fonts.gstatic.com",
     crossOrigin: "anonymous",
   },
+
+  // Favicons
+  { rel: "icon", type: "image/svg+xml", href: faviconSvg },
+  { rel: "alternate icon", href: faviconIco },
+
+  // Apple Touch Icons
+  { rel: "apple-touch-icon", href: appleTouchIcon },
+  { rel: "apple-touch-icon", sizes: "72x72", href: appleTouchIcon72 },
+  { rel: "apple-touch-icon", sizes: "114x114", href: appleTouchIcon114 },
+  { rel: "apple-touch-icon", sizes: "144x144", href: appleTouchIcon144 },
+
+  // Google Fonts stylesheet
   {
     rel: "stylesheet",
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",

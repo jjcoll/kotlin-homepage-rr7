@@ -11,13 +11,15 @@ import { testimonials } from './data';
 import './index.scss';
 import { Container, Section } from '../Layout';
 
-function UsageSectionContent() {
+export interface UsageSectionProps {
+  initialSortByName?: boolean;
+}
+
+function UsageSectionContent({ initialSortByName = false }: UsageSectionProps) {
   const textCn = useTextStyles();
 
-  const [sortByName, setSortByName] = useState(() => {
-    if (typeof window === 'undefined') return false;
-    return localStorage.getItem('kotlin-testimonials-order') === 'name'
-  });
+  // Initial value comes from server (read from cookie in loader)
+  const [sortByName, setSortByName] = useState(initialSortByName);
   const sortedTestimonials = sortByName
     ? [...testimonials].sort((a, b) => a.company.localeCompare(b.company))
     : testimonials;
@@ -34,7 +36,8 @@ function UsageSectionContent() {
             onClick={() => {
               const next = !sortByName;
               setSortByName(next);
-              localStorage.setItem('kotlin-testimonials-order', next ? 'name' : 'default');
+              // Use cookie instead of localStorage so server can read it
+              document.cookie = `kotlin-testimonials-order=${next ? 'name' : 'default'}; path=/; max-age=31536000`;
             }}
           >
             Sort: {sortByName ? 'A-Z' : 'Default'}
@@ -70,10 +73,10 @@ function UsageSectionContent() {
   );
 }
 
-export function UsageSection() {
+export function UsageSection({ initialSortByName }: UsageSectionProps) {
   return (
     <ThemeProvider theme="light">
-      <UsageSectionContent />
+      <UsageSectionContent initialSortByName={initialSortByName} />
     </ThemeProvider>
   );
 }
